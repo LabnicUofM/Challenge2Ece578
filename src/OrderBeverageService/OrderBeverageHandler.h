@@ -43,7 +43,7 @@ namespace vending_machine{
   void OrderBeverageServiceHandler::PlaceOrder(std::string& _return, const int64_t city){
       // Your implementation goes here
       printf("PlaceOrder\n");
-
+      _return = "after anything";
       //return BeverageType::type::COLD;
    
       // 1. get the weather service client pool
