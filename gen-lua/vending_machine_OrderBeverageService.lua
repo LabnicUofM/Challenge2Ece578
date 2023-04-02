@@ -6,19 +6,10 @@
 --
 
 
-local vending_machine_ttype = require 'vending_machine_ttypes'
-local Thrift = require 'Thrift'
-local TType = Thrift.TType
-local TMessageType = Thrift.TMessageType
-local __TObject = Thrift.__TObject
-local TApplicationException = Thrift.TApplicationException
-local __TClient = Thrift.__TClient
-local __TProcessor = Thrift.__TProcessor
-local ttype = Thrift.ttype
-local ttable_size = Thrift.ttable_size
-local TException = Thrift.TException
+require 'Thrift'
+require 'vending_machine_ttypes'
 
-local OrderBeverageServiceClient = __TObject.new(__TClient, {
+OrderBeverageServiceClient = __TObject.new(__TClient, {
   __type = 'OrderBeverageServiceClient'
 })
 
@@ -59,7 +50,7 @@ OrderBeverageServiceIface = __TObject:new{
 }
 
 
-local OrderBeverageServiceProcessor = __TObject.new(__TProcessor
+OrderBeverageServiceProcessor = __TObject.new(__TProcessor
 , {
  __type = 'OrderBeverageServiceProcessor'
 })
@@ -109,7 +100,7 @@ end
 
 -- HELPER FUNCTIONS AND STRUCTURES
 
-local PlaceOrder_args = __TObject:new{
+PlaceOrder_args = __TObject:new{
   city
 }
 
@@ -144,7 +135,7 @@ function PlaceOrder_args:write(oprot)
   oprot:writeStructEnd()
 end
 
-local PlaceOrder_result = __TObject:new{
+PlaceOrder_result = __TObject:new{
   success,
   se
 }
@@ -191,5 +182,3 @@ function PlaceOrder_result:write(oprot)
   oprot:writeFieldStop()
   oprot:writeStructEnd()
 end
-
-return OrderBeverageServiceClient
