@@ -80,7 +80,7 @@ namespace vending_machine{
       auto getbeverage_client = getbeverage_client_wrapper->GetClient();
 
 
-      std::cout << "weathertype" + weatherType << std::endl;
+      std::cout << "weathertype" << weatherType << std::endl;
       //3. get beverage name
       std::string beverageName ="";
       try {
@@ -91,7 +91,7 @@ namespace vending_machine{
         LOG(error) << "Failed to send call ReturnBeverage to getbeverage-client";
         throw;
       }
-      std::cout << "beverage" + BeverageType << std::endl;
+      std::cout << "beverage" << beverageName << std::endl;
       _getbeverage_client_pool->Push(getbeverage_client_wrapper);    
       
 
