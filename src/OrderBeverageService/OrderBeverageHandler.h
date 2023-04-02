@@ -68,7 +68,7 @@ namespace vending_machine{
         LOG(error) << "Failed to send call GetWeather to weather-client";
         throw;
       }
-      int64_t intWeatherType = weatherType == WeatherType::type::COLD ? 1 : 0
+      int64_t intWeatherType = weatherType == WeatherType::type::COLD ? 1 : 0;
       _weather_client_pool->Push(weather_client_wrapper);
  
       auto getbeverage_client_wrapper = _getbeverage_client_pool->Pop();
