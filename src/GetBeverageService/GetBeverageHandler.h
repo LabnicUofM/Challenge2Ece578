@@ -19,7 +19,7 @@ class GetBeverageServiceHandler : public GetBeverageServiceIf {
   GetBeverageServiceHandler();
   ~GetBeverageServiceHandler() override=default;
 
-  GetBeverageType::type ReturnBeverage(const int64_t BeverageType) override;
+  string ReturnBeverage(const int64_t BeverageType) override;
 };
 
 // Constructor
