@@ -32,12 +32,12 @@ GetBeverageServiceHandler::GetBeverageServiceHandler() {
 // Remote Procedure "PlaceOrder"
 
 void GetBeverageServiceHandler::ReturnBeverage(std::string& _return, const int64_t BeverageType) {
-    int HotBeverage[3] = {"Cappuccino", "Latte", "Espresso"};
-    int ColdBeverage[3] = {"Lemonade", "Ice Tea", "Soda"} ;
+    char HotBeverage[3] = {"Cappuccino", "Latte", "Espresso"};
+    char ColdBeverage[3] = {"Lemonade", "Ice Tea", "Soda"} ;
 
     // Your implementation goes here
     printf("ReturnBeverage\n");
-    
+
     _return = BeverageType == 0 ? HotBeverage[rand()%3] : ColdBeverage[rand()%3];
 
 }
