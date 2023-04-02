@@ -70,7 +70,8 @@ namespace vending_machine{
       }
       int64_t intWeatherType = weatherType == WeatherType::type::COLD ? 1 : 0;
       _weather_client_pool->Push(weather_client_wrapper);
- 
+      _return = "after weather";
+
       auto getbeverage_client_wrapper = _getbeverage_client_pool->Pop();
       if (!getbeverage_client_wrapper) {
         ServiceException se;
