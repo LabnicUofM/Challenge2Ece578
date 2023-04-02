@@ -1,19 +1,19 @@
 version: "3"
 services:
   order-beverage-service:
-    image: labnicuofm/challenge2Ece578:version_1
+    image: labnicuofm/challenge2ece578:version_1
     hostname: order-beverage-service
     restart: always
     entrypoint: OrderBeverageService
 
   weather-service:
-    image: labnicuofm/challenge2Ece578:version_1
+    image: labnicuofm/challenge2ece578:version_1
     hostname: weather-service
     restart: always
     entrypoint: WeatherService
 
   getbeverage-service:
-    image: labnicuofm/challenge2Ece578:version_1
+    image: labnicuofm/challenge2ece578:version_1
     hostname: getbeverage-service
     restart: always
     entrypoint: GetBeverageService
