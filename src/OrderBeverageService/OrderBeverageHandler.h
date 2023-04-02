@@ -67,7 +67,7 @@ namespace vending_machine{
 
       //3. get beverage name
       try {
-            char beverageName[] = weather_client->ReturnBeverage(weatherType);
+            char beverageName[] = getbeverage_client->ReturnBeverage(weatherType);
       } 
       catch (...) {
             _weather_client_pool->Push(weather_client_wrapper);
