@@ -94,7 +94,7 @@ namespace vending_machine{
       getbeverage_client_pool->Push(getbeverage_client_wrapper);    
       
 
-      _return = beverageName
+      _return = beverageName;
   }
 
 } // namespace vending_machine
