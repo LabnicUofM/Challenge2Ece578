@@ -32,8 +32,8 @@ GetBeverageServiceHandler::GetBeverageServiceHandler() {
 // Remote Procedure "PlaceOrder"
 
 void GetBeverageServiceHandler::ReturnBeverage(std::string& _return, const int64_t BeverageType) {
-    char HotBeverage[3] = {"Cappuccino", "Latte", "Espresso"};
-    char ColdBeverage[3] = {"Lemonade", "Ice Tea", "Soda"} ;
+    std::string HotBeverage[3] = {"Cappuccino", "Latte", "Espresso"};
+    std::string ColdBeverage[3] = {"Lemonade", "Ice Tea", "Soda"} ;
 
     // Your implementation goes here
     printf("ReturnBeverage\n");
