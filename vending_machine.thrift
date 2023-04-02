@@ -36,6 +36,7 @@ enum BeverageType{
 	COLD
 }
 
+
 service OrderBeverageService{
 	string PlaceOrder(
 		1: i64 city
@@ -52,5 +53,11 @@ service UpdateWeatherService{
 service WeatherService{
 	WeatherType GetWeather(
 		1: i64 city
+	)
+}
+
+service GetBeverageService{
+	string ReturnBeverage(
+		1: i64 BeverageType
 	)
 }
