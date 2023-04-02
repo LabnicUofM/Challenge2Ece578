@@ -32,7 +32,7 @@ namespace vending_machine{
   // Constructor
   OrderBeverageServiceHandler::OrderBeverageServiceHandler(
       ClientPool<ThriftClient<WeatherServiceClient>> *weather_client_pool, 
-      ClientPool<ThriftClient<GetBeverageServiceClient>> *beverage_client_pool) {
+      ClientPool<ThriftClient<GetBeverageServiceClient>> *getbeverage_client_pool) {
 
       // Storing the clientpool
       _weather_client_pool = weather_client_pool;
