@@ -17,7 +17,7 @@ local ttype = Thrift.ttype
 local ttable_size = Thrift.ttable_size
 local TException = Thrift.TException
 
-local localOrderBeverageServiceClient = __TObject.new(__TClient, {
+local OrderBeverageServiceClient = __TObject.new(__TClient, {
   __type = 'OrderBeverageServiceClient'
 })
 
