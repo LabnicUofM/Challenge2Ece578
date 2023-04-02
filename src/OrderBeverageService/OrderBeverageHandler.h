@@ -8,6 +8,7 @@
 
 #include "../../gen-cpp/OrderBeverageService.h"
 #include "../../gen-cpp/WeatherService.h"
+#include "../../gen-cpp/GetBeverageService.h"
 
 #include "../ClientPool.h"
 #include "../ThriftClient.h"
@@ -18,20 +19,24 @@ namespace vending_machine{
   class OrderBeverageServiceHandler : public OrderBeverageServiceIf {
   public:
     OrderBeverageServiceHandler(
-        ClientPool<ThriftClient<WeatherServiceClient>> *) ;
+        ClientPool<ThriftClient<WeatherServiceClient>> *, 
+        ClientPool<ThriftClient<GetBeverageServiceClient>> *) ;
     ~OrderBeverageServiceHandler() override=default;
 
     void PlaceOrder(std::string& _return, const int64_t city) override;
   private:
     ClientPool<ThriftClient<WeatherServiceClient>> *_weather_client_pool;
+    ClientPool<ThriftClient<GetBeverageServiceClient>> *_getbeverage_client_pool;
   };
 
   // Constructor
   OrderBeverageServiceHandler::OrderBeverageServiceHandler(
-      ClientPool<ThriftClient<WeatherServiceClient>> *weather_client_pool) {
+      ClientPool<ThriftClient<WeatherServiceClient>> *weather_client_pool, 
+      ClientPool<ThriftClient<GetBeverageServiceClient>> *beverage_client_pool) {
 
       // Storing the clientpool
       _weather_client_pool = weather_client_pool;
+      _getbeverage_client_pool = getbeverage_client_pool;
   }
 
   // Remote Procedure "PlaceOrder"
@@ -65,17 +70,26 @@ namespace vending_machine{
       }
       _weather_client_pool->Push(weather_client_wrapper);
 
+
+      auto getbeverage_client_wrapper = _getbeverage_client_pool->Pop();
+      if (!getbeverage_client_wrapper) {
+        ServiceException se;
+        se.errorCode = ErrorCode::SE_THRIFT_CONN_ERROR;
+        se.message = "Failed to connect to getbeverage-service";
+        throw se;
+      }
       //3. get beverage name
+      std::string beverageName ="";
       try {
-            std::string beverageName = getbeverage_client->ReturnBeverage(weatherType);
+        beverageName = getbeverage_client->ReturnBeverage(weatherType);
       } 
       catch (...) {
-            _weather_client_pool->Push(weather_client_wrapper);
-            LOG(error) << "Failed to send call ReturnBeverage to weather-client";
-            throw;
+        _getbeverage_client_pool->Push(getbeverage_client_wrapper);
+        LOG(error) << "Failed to send call ReturnBeverage to getbeverage-client";
+        throw;
       }
       
-      weather_client_pool->Push(weather_client_wrapper);    
+      getbeverage_client_pool->Push(getbeverage_client_wrapper);    
       
 
       _return = beverageName
