@@ -27,17 +27,17 @@ thrift --gen lua vending_machine.thrift
 # cheatsheet on docker commands
 
 1. To create docker image from docker file:
-$ docker build -t yourusername/repository-image-name .
+$ sudo docker build -t LabnicUofM/vending-machine-microservice .
 2. List docker images:
-$ docker images -a
+$ sudo docker images -a
 3. Retag the image with a version number: 
-$ docker tag yourusername/repository-image-name yourdockerhubusername/repository-image-name:version_1
+$ sudo  docker tag yourusername/repository-image-name yourdockerhubusername/repository-image-name:version_1
 4. Docker-Hub login:
-$ docker login
+$ sudo docker login
 5. Push the local image to docker-hub
-$ docker push abiodunjames/example-node-app:v1 
+$ sudo docker push abiodunjames/example-node-app:v1 
 6. List docker containers:
-$ docker ps -a
+$ sudo docker ps -a
 
 Ref: 
 1. https://stackify.com/docker-build-a-beginners-guide-to-building-docker-images/
