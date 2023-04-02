@@ -78,6 +78,7 @@ namespace vending_machine{
         se.message = "Failed to connect to getbeverage-service";
         throw se;
       }
+      auto getbeverage_client = getbeverage_client_wrapper->GetClient();
       //3. get beverage name
       std::string beverageName ="";
       try {
