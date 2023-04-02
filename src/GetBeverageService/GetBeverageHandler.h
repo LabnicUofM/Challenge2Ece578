@@ -19,7 +19,7 @@ class GetBeverageServiceHandler : public GetBeverageServiceIf {
   GetBeverageServiceHandler();
   ~GetBeverageServiceHandler() override=default;
 
-  string ReturnBeverage(const int64_t BeverageType) override;
+  void ReturnBeverage(std::string& _return, const int64_t BeverageType) override;
 };
 
 // Constructor
@@ -31,13 +31,14 @@ GetBeverageServiceHandler::GetBeverageServiceHandler() {
 
 // Remote Procedure "PlaceOrder"
 
-GetBeverageType::type GetBeverageServiceHandler::ReturnBeverage(const int64_t BeverageType) {
+void GetBeverageServiceHandler::ReturnBeverage(std::string& _return, const int64_t BeverageType) {
     int HotBeverage[3] = {"Cappuccino", "Latte", "Espresso"};
     int ColdBeverage[3] = {"Lemonade", "Ice Tea", "Soda"} ;
 
-     // Your implementation goes here
-     printf("ReturnBeverage\n");
-    return BeverageType == 0 ? HotBeverage[rand()%3] : ColdBeverage[rand()%3];
+    // Your implementation goes here
+    printf("ReturnBeverage\n");
+    
+    _return = BeverageType == 0 ? HotBeverage[rand()%3] : ColdBeverage[rand()%3];
 
 }
 
