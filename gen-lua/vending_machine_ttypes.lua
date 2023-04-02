@@ -6,10 +6,10 @@
 --
 
 
-require 'Thrift'
-require 'vending_machine_constants'
+local require 'Thrift'
+local require 'vending_machine_constants'
 
-ErrorCode = {
+local ErrorCode = {
   SE_CONNPOOL_TIMEOUT = 0,
   SE_THRIFT_CONN_ERROR = 1,
   SE_UNAUTHORIZED = 2,
@@ -20,17 +20,17 @@ ErrorCode = {
   SE_RABBITMQ_CONN_ERROR = 7
 }
 
-WeatherType = {
+local WeatherType = {
   WARM = 0,
   COLD = 1
 }
 
-BeverageType = {
+local BeverageType = {
   HOT = 0,
   COLD = 1
 }
 
-ServiceException = TException:new{
+local ServiceException = TException:new{
   __type = 'ServiceException',
   errorCode,
   message

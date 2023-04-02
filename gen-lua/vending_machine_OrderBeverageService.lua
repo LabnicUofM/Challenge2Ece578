@@ -6,10 +6,10 @@
 --
 
 
-require 'Thrift'
-require 'vending_machine_ttypes'
+local require 'Thrift'
+local require 'vending_machine_ttypes'
 
-OrderBeverageServiceClient = __TObject.new(__TClient, {
+local OrderBeverageServiceClient = __TObject.new(__TClient, {
   __type = 'OrderBeverageServiceClient'
 })
 
