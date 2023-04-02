@@ -68,8 +68,9 @@ namespace vending_machine{
         LOG(error) << "Failed to send call GetWeather to weather-client";
         throw;
       }
+      int64_t intWeatherType = weatherType == WeatherType::type::COLD ? 1 : 0
       _weather_client_pool->Push(weather_client_wrapper);
-
+ 
       auto getbeverage_client_wrapper = _getbeverage_client_pool->Pop();
       if (!getbeverage_client_wrapper) {
         ServiceException se;
@@ -79,19 +80,16 @@ namespace vending_machine{
       }
       auto getbeverage_client = getbeverage_client_wrapper->GetClient();
 
-
-      std::cout << "weathertype" << weatherType << std::endl;
       //3. get beverage name
       std::string beverageName ="";
       try {
-        getbeverage_client->ReturnBeverage(beverageName,(int64_t)weatherType);
+        getbeverage_client->ReturnBeverage(beverageName,intWeatherType);
       } 
       catch (...) {
         _getbeverage_client_pool->Push(getbeverage_client_wrapper);
         LOG(error) << "Failed to send call ReturnBeverage to getbeverage-client";
         throw;
       }
-      std::cout << "beverage" << beverageName << std::endl;
       _getbeverage_client_pool->Push(getbeverage_client_wrapper);    
       
 
