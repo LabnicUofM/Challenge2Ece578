@@ -6,8 +6,9 @@
 --
 
 
-local require 'Thrift'
-local require 'vending_machine_constants'
+local Thrift = require 'Thrift'
+local __TObject = Thrift.__TObject
+local TException = Thrift.TException
 
 local ErrorCode = {
   SE_CONNPOOL_TIMEOUT = 0,
