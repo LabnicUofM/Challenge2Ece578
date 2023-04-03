@@ -44,7 +44,6 @@ namespace vending_machine{
       // Your implementation goes here
       printf("PlaceOrder\n");
       _return = "after anything";
-      return BeverageType::type::COLD;
    
       // 1. get the weather service client pool
       auto weather_client_wrapper = _weather_client_pool->Pop();
@@ -84,7 +83,7 @@ namespace vending_machine{
       //3. get beverage name
       std::string beverageName ="test";
       try {
-        //getbeverage_client->ReturnBeverage(*beverageName,intWeatherType);
+        getbeverage_client->ReturnBeverage(*beverageName,intWeatherType);
       } 
       catch (...) {
         _getbeverage_client_pool->Push(getbeverage_client_wrapper);
