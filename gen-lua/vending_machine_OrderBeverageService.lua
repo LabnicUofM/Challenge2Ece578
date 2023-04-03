@@ -190,3 +190,5 @@ function PlaceOrder_result:write(oprot)
   oprot:writeFieldStop()
   oprot:writeStructEnd()
 end
+
+return OrderBeverageServiceClient
