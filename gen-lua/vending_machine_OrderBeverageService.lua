@@ -20,7 +20,9 @@ local TException = Thrift.TException
 local OrderBeverageServiceClient = __TObject.new(__TClient, {
   __type = 'OrderBeverageServiceClient'
 })
-
+local PlaceOrder_args = __TObject:new{
+  city
+}
 function OrderBeverageServiceClient:PlaceOrder(city)
   self:send_PlaceOrder(city)
   return self:recv_PlaceOrder(city)
@@ -108,9 +110,7 @@ end
 
 -- HELPER FUNCTIONS AND STRUCTURES
 
-local PlaceOrder_args = __TObject:new{
-  city
-}
+
 
 function PlaceOrder_args:read(iprot)
   iprot:readStructBegin()
