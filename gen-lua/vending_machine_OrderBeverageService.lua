@@ -143,7 +143,7 @@ function PlaceOrder_args:write(oprot)
   oprot:writeStructEnd()
 end
 
-local PlaceOrder_result = __TObject:new{
+PlaceOrder_result = __TObject:new{
   success,
   se
 }
