@@ -83,7 +83,7 @@ namespace vending_machine{
       //3. get beverage name
       std::string beverageName ="test";
       try {
-        getbeverage_client->ReturnBeverage(*beverageName,intWeatherType);
+        getbeverage_client->ReturnBeverage(beverageName,intWeatherType);
       } 
       catch (...) {
         _getbeverage_client_pool->Push(getbeverage_client_wrapper);
